@@ -47,6 +47,11 @@ AppDataSource.initialize().then(async () => {
         } else if (input_menu == Number(2)) {
             console.log("Melakukan Operasi Menampilkan Daftar Tugas");
             // tampilkan semua data yang ada dalam database
+            const input_data = prompt('AppDataSource');
+            let task = new Task();
+            task.name = input_data;
+            task.is_done = false;
+            await AppDataSource.manager.save(task);
         } else if (input_menu == Number(3)) {
             console.log("Melakukan Operasi Melakukan Ubah Tugas");
             // tampilkan aksi menerima input nomor task yang ingin diubah
